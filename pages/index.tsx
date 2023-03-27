@@ -1,37 +1,20 @@
 import Head from 'next/head'
-import { GetStaticProps, NextPage } from 'next'
-import Post from '../components/post'
-import { PostData, PostDataListProps } from '../types/postdata'
-import { GetPosts } from '../lib/postdata_api'
 
-export const getStaticProps: GetStaticProps = async (_context) => {
-  // fetch list of posts
-  const posts: PostData[] = await GetPosts()
-  return {
-    props: {
-      postDataList: posts,
-    },
-  }
-}
-
-const IndexPage: NextPage<PostDataListProps> = ({
-  postDataList,
-}: PostDataListProps) => {
+export default function Index() {
   return (
-    <main>
+    <div>
       <Head>
-        <title>Home page</title>
+        <title>Static Web Client</title>
       </Head>
-
-      <h1>List of posts</h1>
-
-      <section>
-        {postDataList.map((post: PostData) => (
-          <Post {...post} key={post.id} />
-        ))}
-      </section>
-    </main>
-  )
+      <main>
+        <h1>Hello, world!</h1>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Button
+        </button>
+      </main>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </div>
+  );
 }
-
-export default IndexPage
