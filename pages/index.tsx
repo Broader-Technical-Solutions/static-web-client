@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import FixedHeader from '../components/fixedHeader';
 
 export default function Index() {
   return (
@@ -8,9 +9,7 @@ export default function Index() {
       </Head>
       <main>
         <h1>Hello, world!</h1>
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-          Button
-        </button>
+        <FixedHeader />
       </main>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
